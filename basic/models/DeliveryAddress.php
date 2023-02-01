@@ -10,9 +10,9 @@ use Yii;
  * @property int $id
  * @property int $id_user
  * @property int $id_city
- * @property int $street
+ * @property string $street
  * @property int|null $apartament_number
- * @property int|null $comment
+ * @property string $comment
  *
  * @property City $city
  * @property Order[] $orders
@@ -35,7 +35,8 @@ class DeliveryAddress extends \yii\db\ActiveRecord
     {
         return [
             [['id_user', 'id_city', 'street'], 'required'],
-            [['id_user', 'id_city', 'street', 'apartament_number', 'comment'], 'integer'],
+            [['id_user', 'id_city', 'apartament_number'], 'integer'],
+            [['street', 'comment'], 'string'],
             [['id_city'], 'exist', 'skipOnError' => true, 'targetClass' => City::class, 'targetAttribute' => ['id_city' => 'id']],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],
         ];
@@ -48,11 +49,11 @@ class DeliveryAddress extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
-            'id_city' => 'Id City',
-            'street' => 'Street',
-            'apartament_number' => 'Apartament Number',
-            'comment' => 'Comment',
+            'id_user' => 'Id пользователя',
+            'id_city' => 'Id города',
+            'street' => 'улица',
+            'apartament_number' => 'номер дома',
+            'comment' => 'комментарий',
         ];
     }
 

@@ -17,7 +17,7 @@ class UserHasCardSearch extends UserHasCard
     public function rules()
     {
         return [
-            [['id', 'id_user', 'number', 'CVV/CVC'], 'integer'],
+            [['id', 'id_user', 'number', 'CVV'], 'integer'],
             [['validity_period'], 'safe'],
         ];
     }
@@ -62,7 +62,7 @@ class UserHasCardSearch extends UserHasCard
             'id_user' => $this->id_user,
             'number' => $this->number,
             'validity_period' => $this->validity_period,
-            'CVV/CVC' => $this->CVV/CVC,
+            'CVV' => $this->CVV,
         ]);
 
         return $dataProvider;

@@ -11,7 +11,7 @@ use Yii;
  * @property int $id_user
  * @property int $number Номер карты
  * @property string $validity_period До какого месяца/года
- * @property int $CVV/CVC Код на обратной стороне
+ * @property int $CVV Код на обратной стороне
  *
  * @property Order[] $orders
  * @property User $user
@@ -33,7 +33,7 @@ class UserHasCard extends \yii\db\ActiveRecord
     {
         return [
             [['id_user', 'number', 'validity_period', 'CVV/CVC'], 'required'],
-            [['id_user', 'number', 'CVV/CVC'], 'integer'],
+            [['id_user', 'number', 'CVV'], 'integer'],
             [['validity_period'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],
         ];
@@ -49,7 +49,7 @@ class UserHasCard extends \yii\db\ActiveRecord
             'id_user' => 'Id User',
             'number' => 'Номер карты',
             'validity_period' => 'До какого месяца/года',
-            'CVV/CVC' => 'Код на обратной стороне',
+            'CVV' => 'Код на обратной стороне',
         ];
     }
 

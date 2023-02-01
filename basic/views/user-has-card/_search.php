@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'validity_period') ?>
 
-    <?= $form->field($model, 'CVV/CVC') ?>
+    <?= $form->field($model, 'CVV') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

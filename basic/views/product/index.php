@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'method of use:ntext',
             //'rating',
             [
-                'class' => ActionColumn::className(),
+                'class' => ActionColumn::class,
                 'urlCreator' => function ($action, Product $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }

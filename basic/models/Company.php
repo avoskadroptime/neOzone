@@ -46,11 +46,11 @@ class Company extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'ITN' => 'ИНН компании',
-            'logo_name' => 'Название логотипа компании с расширением файла (png, jpeg и тд)',
-            'created_at' => 'Создание учетной записи компании',
-            'updated_at' => 'Время обновления информации компании',
+            'logo_name' => 'Название фото',
+            'created_at' => 'Время создания',
+            'updated_at' => 'Время обновления ',
         ];
     }
 

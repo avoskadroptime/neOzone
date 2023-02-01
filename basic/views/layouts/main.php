@@ -33,13 +33,21 @@ AppAsset::register($this);
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
-    ]);/*обавить ссылки*/
+    ]);/*добавить ссылки*/
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'Статус заказа', 'url' => ['/order-status/index']],
+            ['label' => 'Компании', 'url' => ['/company/index']],
+            ['label' => 'Пользователи', 'url' => ['/user/index']],
+            ['label' => 'банковские карты', 'url' => ['/user-has-card/index']],
+            ['label' => 'адреса доставки', 'url' => ['/delivery-address/index']],
+            ['label' => 'заказ', 'url' => ['/order/index']],
+            ['label' => 'корзина', 'url' => ['/cart/index']],
+            ['label' => 'Категории', 'url' => ['/product-category/index']],
+            ['label' => 'товар', 'url' => ['/product/index']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_user',
             'number',
             'validity_period',
-            'CVV/CVC',
+            'CVV',
         ],
     ]) ?>
 

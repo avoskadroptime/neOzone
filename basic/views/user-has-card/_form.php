@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'validity_period')->textInput() ?>
 
-    <?= $form->field($model, 'CVV/CVC')->textInput() ?>
+    <?= $form->field($model, 'CVV')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
