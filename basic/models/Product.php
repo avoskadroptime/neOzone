@@ -18,7 +18,7 @@ use Yii;
  * @property int|null $discount_price фикс. скидка в копеках
  * @property string $description Описание
  * @property string $characteristic Характеристика
- * @property string|null $method of use Метод использования
+ * @property string|null $method_of_use Метод использования
  * @property int|null $rating
  *
  * @property CartHasProducts[] $cartHasProducts
@@ -49,7 +49,7 @@ class Product extends \yii\db\ActiveRecord
             [['name', 'price', 'id_user', 'id_category', 'created_at', 'updated_at', 'description', 'characteristic'], 'required'],
             [['price', 'id_user', 'id_category', 'discount_perc', 'discount_price', 'rating'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
-            [['description', 'characteristic', 'method of use'], 'string'],
+            [['description', 'characteristic', 'method_of_use'], 'string'],
             [['name'], 'string', 'max' => 65],
             [['id_category'], 'unique'],
             [['id_user'], 'unique'],
@@ -75,7 +75,7 @@ class Product extends \yii\db\ActiveRecord
             'discount_price' => 'фикс. скидка в копеках',
             'description' => 'Описание',
             'characteristic' => 'Характеристика',
-            'method of use' => 'Метод использования',
+            'method_of_use' => 'Метод использования',
             'rating' => 'Rating',
         ];
     }

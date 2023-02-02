@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'characteristic')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'method of use')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'method_of_use')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'rating')->textInput() ?>
 

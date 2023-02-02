@@ -18,7 +18,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'price', 'id_user', 'id_category', 'discount_perc', 'discount_price', 'rating'], 'integer'],
-            [['name', 'created_at', 'updated_at', 'description', 'characteristic', 'method of use'], 'safe'],
+            [['name', 'created_at', 'updated_at', 'description', 'characteristic', 'method_of_use'], 'safe'],
         ];
     }
 
@@ -71,9 +71,9 @@ class ProductSearch extends Product
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'characteristic', $this->characteristic]);
-        /*исправить метод оф юз!*/
-            ->andFilterWhere(['like', 'method of use', $this->method of use]);
+            ->andFilterWhere(['like', 'characteristic', $this->characteristic])
+
+            ->andFilterWhere(['like', 'method_of_use', $this->method_of_use]);
 
         return $dataProvider;
     }

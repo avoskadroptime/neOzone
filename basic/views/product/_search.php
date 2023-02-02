@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'characteristic') ?>
 
-    <?php // echo $form->field($model, 'method of use') ?>
+    <?php // echo $form->field($model, 'method_of_use') ?>
 
     <?php // echo $form->field($model, 'rating') ?>
 

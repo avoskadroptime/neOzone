@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'discount_price',
             'description:ntext',
             'characteristic:ntext',
-            'method of use:ntext',
+            'method_of_use:ntext',
             'rating',
         ],
     ]) ?>
