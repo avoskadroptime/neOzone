@@ -19,7 +19,8 @@ use Yii;
  * @property int $count_dislike Кол-во дизлаков на отзыве от других пользователей
  * @property string $created_at Когда создали отзыв
  * @property string $updated_at Когда обновили отзыв
- * @property int $cheked Проверен ли отзыв админом 1-да, 0-нет
+ * @property int $cheked Проверен ли отзыв админом
+ 1-да, 0-нет
  *
  * @property Comment $comment
  * @property PhotoReview[] $photoReviews
@@ -61,19 +62,18 @@ class Review extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
-            'id_product' => 'Id Product',
+            'id_user' => 'Id пользователя',
+            'id_product' => 'Id продукта',
             'name' => 'Заголовок отзыва',
             'rating' => 'Кол-во звезд от пользователя',
             'description' => 'Текст отзыва',
             'pluses' => 'Преимущества товара',
             'minuses' => 'Недостатки товара',
             'count_like' => 'Кол-во лайков на отзыве от других пользователей',
-            'count_dislike' => 'Кол-во дизлаков на отзыве от других пользователей',
+            'count_dislike' => 'Кол-во дизлайков на отзыве от других пользователей',
             'created_at' => 'Когда создали отзыв',
             'updated_at' => 'Когда обновили отзыв',
-            'cheked' => 'Проверен ли отзыв админом
-1-да, 0-нет',
+            'cheked' => 'Проверен ли отзыв админом: 1-да, 0-нет',
         ];
     }
 

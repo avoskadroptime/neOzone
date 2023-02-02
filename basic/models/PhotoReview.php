@@ -43,7 +43,7 @@ class PhotoReview extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_review' => 'Id Review',
+            'id_review' => 'Id отзыва',
             'photo_name' => 'Название фото + его расширение файла',
         ];
     }

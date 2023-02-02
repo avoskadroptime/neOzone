@@ -44,8 +44,8 @@ class ParentProductCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_category' => 'Id Category',
-            'id_parent_category' => 'Id Parent Category',
+            'id_category' => 'Id категории',
+            'id_parent_category' => 'Id родительской категории',
         ];
     }
 

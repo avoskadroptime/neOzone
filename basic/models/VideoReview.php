@@ -43,8 +43,8 @@ class VideoReview extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_review' => 'Id Review',
-            'video_name' => 'Название видиофайла с расширением',
+            'id_review' => 'Id отзыва',
+            'video_name' => 'Название видео-файла с расширением',
         ];
     }
 

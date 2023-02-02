@@ -47,9 +47,9 @@ class ReviewHasDisLikes extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_review' => 'Id Review',
-            'id_user' => 'Id User',
-            'id_like' => 'Id Like',
+            'id_review' => 'Id отзыва',
+            'id_user' => 'Id пользователя',
+            'id_like' => 'Id dis/like',
         ];
     }
 

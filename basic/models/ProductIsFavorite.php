@@ -44,8 +44,8 @@ class ProductIsFavorite extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
-            'id_product' => 'Id Product',
+            'id_user' => 'Id пользователя',
+            'id_product' => 'Id продукта',
         ];
     }
 

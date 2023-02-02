@@ -46,7 +46,7 @@ class UserHasCard extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
+            'id_user' => 'Id пользователя',
             'number' => 'Номер карты',
             'validity_period' => 'До какого месяца/года',
             'CVV' => 'Код на обратной стороне',

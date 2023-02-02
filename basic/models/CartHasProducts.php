@@ -45,9 +45,9 @@ class CartHasProducts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_cart' => 'Id Cart',
-            'id_product' => 'Id Product',
-            'count' => 'Count',
+            'id_cart' => 'Id корзины',
+            'id_product' => 'Id продукта',
+            'count' => 'Количество',
         ];
     }
 

@@ -58,14 +58,14 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
+            'id_user' => 'Id Пользователя',
             'date' => 'Время подтверждения заказа',
-            'id_address' => 'Id Address',
-            'id_card' => 'Id Card',
-            'id_cart' => 'Id Cart',
-            'id_status' => 'Id Status',
+            'id_address' => 'Id Адреса доставки',
+            'id_card' => 'Id банковской карты',
+            'id_cart' => 'Id корзины',
+            'id_status' => 'Id статуса заказа',
             'amount' => 'Стоимость заказа',
-            'discount' => 'Сумма скидки на заказа',
+            'discount' => 'Сумма скидки заказа',
         ];
     }
 

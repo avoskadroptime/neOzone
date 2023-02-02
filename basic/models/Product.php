@@ -65,18 +65,18 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'price' => 'Цена товара в российских копейках',
             'id_user' => 'id менеджера создавшего товар',
-            'id_category' => 'Id Category',
+            'id_category' => 'Id категории',
             'created_at' => 'Время создания товара',
             'updated_at' => 'Время обновления информации о товаре',
-            'discount_perc' => 'скидка в процентах',
-            'discount_price' => 'фикс. скидка в копеках',
+            'discount_perc' => 'Скидка в процентах',
+            'discount_price' => 'Фикс. скидка в копеках',
             'description' => 'Описание',
             'characteristic' => 'Характеристика',
             'method_of_use' => 'Метод использования',
-            'rating' => 'Rating',
+            'rating' => 'Рейтинг товара',
         ];
     }
 

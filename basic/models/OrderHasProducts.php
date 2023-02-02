@@ -45,9 +45,9 @@ class OrderHasProducts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_order' => 'Id Order',
-            'id_product' => 'Id Product',
-            'count' => 'Count',
+            'id_order' => 'Id заказа',
+            'id_product' => 'Id продукта',
+            'count' => 'Количество',
         ];
     }
 

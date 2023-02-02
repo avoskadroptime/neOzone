@@ -44,8 +44,8 @@ class PromotionHasProduct extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_promotion' => 'Id Promotion',
-            'id_product' => 'Id Product',
+            'id_promotion' => 'Id акции',
+            'id_product' => 'Id продукта',
         ];
     }
 
