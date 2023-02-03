@@ -4,7 +4,7 @@
 *Практика разработки онлайн-магазина neOzone, используя yii2.*
  - [x] ПР №1
  - [x] ПР №2
- - [ ] ПР №3
+ - [ ] ПР №3 ~ в процессе
  - [ ] ПР №4
  - [ ] ПР №5
 
@@ -18,7 +18,7 @@
 Прописываем команды в **cmd**, перемещаясь в нужный каталог:
 
     git clone https://github.com/avoskadroptime/neOzone.git
-    cd basic
+    cd neOzone/basic
     composer install
 Последняя команда необходима для создания у себя папки **vendor**.
 
