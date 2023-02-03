@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "cart_has_products".
@@ -69,5 +70,13 @@ class CartHasProducts extends \yii\db\ActiveRecord
     public function getProduct()
     {
         return $this->hasOne(Product::class, ['id' => 'id_product']);
+    }
+
+    public static function dropDownListProduct(){
+        return ArrayHelper::map(Product::find()->all(), 'id', 'name');
+    }
+
+    public static function dropDownListCart(){
+        return ArrayHelper::map(Cart::find()->all(), 'id', 'id');
     }
 }

@@ -49,7 +49,7 @@ AppAsset::register($this);
             ['label' => 'Корзина', 'url' => ['/cart/index']],
             ['label' => 'Категории', 'url' => ['/product-category/index']],
             ['label' => 'Акции', 'url' => ['/promotions/index']],
-            ['label' => 'Товары в корзине', 'url' => ['/cart-has-product/index']],
+            ['label' => 'Товары в корзине', 'url' => ['/cart-has-products/index']],
             //['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

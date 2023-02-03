@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\CartHasProducts $model */
@@ -12,9 +13,10 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_cart')->textInput() ?>
+    <?= $form->field($model, 'id_cart')->DropDownList(models\CartHasProducts::dropDownListCart())?>
 
-    <?= $form->field($model, 'id_product')->textInput() ?>
+    <?= $form->field($model, 'id_product')->DropDownList(models\CartHasProducts::dropDownListProduct())?>
+
 
     <?= $form->field($model, 'count')->textInput() ?>
 

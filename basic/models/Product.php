@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "product".
@@ -159,4 +160,6 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
     }
+
+
 }
