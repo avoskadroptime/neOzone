@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\User $model */
@@ -16,15 +17,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'id_role')->textInput() ?>
+    <?= $form->field($model, 'id_role')->dropDownList(models\User::dropDownListRole(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_company')->textInput() ?>
+    <?= $form->field($model, 'id_company')->dropDownList(models\User::dropDownListCompany(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'phone')->textInput() ?>
 
-    <?= $form->field($model, 'id_city')->textInput() ?>
+    <?= $form->field($model, 'id_city')->dropDownList(models\User::dropDownListCity(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'currency')->textInput(['maxlength' => true]) ?>
 

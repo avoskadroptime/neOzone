@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\UserHasCard $model */
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\UserHasCard::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'number')->textInput() ?>
 

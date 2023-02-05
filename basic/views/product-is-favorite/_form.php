@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\ProductIsFavorite $model */
@@ -12,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\ProductIsFavorite::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_product')->textInput() ?>
+    <?= $form->field($model, 'id_product')->DropDownList(models\ProductIsFavorite::dropDownListProduct(),['prompt' => 'Выберите значение...'])?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

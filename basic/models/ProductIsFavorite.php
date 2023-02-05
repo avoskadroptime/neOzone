@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "product_is_favorite".
@@ -67,5 +68,14 @@ class ProductIsFavorite extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
+    }
+    public static function dropDownListUser()
+    {
+        return ArrayHelper::map(User::find()->all(), 'id', 'login');
+    }
+
+    public static function dropDownListProduct()
+    {
+        return ArrayHelper::map(Product::find()->all(), 'id', 'name');
     }
 }

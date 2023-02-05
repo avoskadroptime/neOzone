@@ -13,7 +13,7 @@ use app\models;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->DropDownList(models\Cart::dropDownListUser())?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\Cart::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

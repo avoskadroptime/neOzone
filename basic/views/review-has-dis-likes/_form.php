@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\ReviewHasDisLikes $model */
@@ -12,11 +13,11 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_review')->textInput() ?>
+    <?= $form->field($model, 'id_review')->DropDownList(models\ReviewHasDisLikes::dropDownListReview(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\Review::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_like')->textInput() ?>
+    <?= $form->field($model, 'id_like')->DropDownList(models\ReviewHasDisLikes::dropDownListLike(),['prompt' => 'Выберите значение...'])?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\OrderHasProducts $model */
@@ -12,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_order')->textInput() ?>
+    <?= $form->field($model, 'id_order')->DropDownList(models\OrderHasProducts::dropDownListOrder(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_product')->textInput() ?>
+    <?= $form->field($model, 'id_product')->DropDownList(models\OrderHasProducts::dropDownListProduct(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'count')->textInput() ?>
 

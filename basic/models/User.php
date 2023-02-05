@@ -5,14 +5,14 @@ namespace app\models;
 use Yii;
 use yii\web\IdentityInterface;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "user".
  *
  * @property int $id
  * @property string $login Логин
- * @property string $password закодированный 
- Пароль
+ * @property string $password закодированный Пароль
  * @property int $id_role Роль пользователя
  * @property int|null $id_company id компании если пользователь является менеджером
  * @property string|null $email электронный почтовый адрес
@@ -36,7 +36,7 @@ use yii\db\ActiveRecord;
  * @property Role $role
  * @property UserHasCard[] $userHasCards
  */
-class User extends \yii\db\ActiveRecord implements IdentityInterface
+class User extends ActiveRecord implements IdentityInterface
 {
 
     /**
@@ -129,7 +129,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             'id' => 'ID',
             'login' => 'Логин',
-            'password' => 'Pакодированный Пароль',
+            'password' => 'Пароль',
             'id_role' => 'Id Роль пользователя',
             'id_company' => 'Id компании если пользователь является менеджером',
             'email' => 'Электронный почтовый адрес',
@@ -260,5 +260,17 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function getUserHasCards()
     {
         return $this->hasMany(UserHasCard::class, ['id_user' => 'id']);
+    }
+
+    public static function dropDownListRole(){
+        return ArrayHelper::map(Role::find()->all(), 'id', 'name');
+    }
+
+    public static function dropDownListCompany(){
+        return ArrayHelper::map(Company::find()->all(), 'id', 'name');
+    }
+
+    public static function dropDownListCity(){
+        return ArrayHelper::map(City::find()->all(), 'id', 'name_ru');
     }
 }

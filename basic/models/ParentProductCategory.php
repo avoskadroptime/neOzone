@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "parent_product_category".
@@ -68,4 +69,17 @@ class ParentProductCategory extends \yii\db\ActiveRecord
     {
         return $this->hasOne(ProductCategory::class, ['id' => 'id_parent_category']);
     }
+
+    // public function getFull(){
+    //     return $this->id_category . " - " . $this->id_parent_category;
+    // }
+
+    // public function getFull(){
+    //     return ArrayHelper::map(ProductCategory::find()->all(), 'id_category', 'name') . " - " . ArrayHelper::map(ProductCategory::find()->all(), 'id_parent_category', 'name');
+    // }
+
+    public static function dropDownListCategory(){
+        return ArrayHelper::map(ProductCategory::find()->all(), /* 'id_category' */ 'id', 'name');
+    }
 }
+

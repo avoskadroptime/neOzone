@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "photo_product".
@@ -56,5 +57,9 @@ class PhotoProduct extends \yii\db\ActiveRecord
     public function getProduct()
     {
         return $this->hasOne(Product::class, ['id' => 'id_product']);
+    }
+
+    public static function dropDownListProduct(){
+        return ArrayHelper::map(Product::find()->all(), /* 'id_category' */ 'id', 'name');
     }
 }

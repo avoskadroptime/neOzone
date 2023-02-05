@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "order".
@@ -127,5 +128,29 @@ class Order extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
+    }
+
+    public static function dropDownListUser(){
+        return ArrayHelper::map(User::find()->all(), 'id', 'login');
+    }
+    
+    public static function dropDownListCart()
+    {
+        return ArrayHelper::map(Cart::find()->all(), 'id', 'id');
+    }
+
+    public static function dropDownListCard()
+    {
+        return ArrayHelper::map(UserHasCard::find()->all(), 'id', 'id');
+    }
+
+    public static function dropDownListAddress()
+    {
+        return ArrayHelper::map(DeliveryAddress::find()->all(), 'id', 'id');
+    }
+
+    public static function dropDownListStatus()
+    {
+        return ArrayHelper::map(OrderStatus::find()->all(), 'id', 'name');
     }
 }

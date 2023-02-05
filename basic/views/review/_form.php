@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\Review $model */
@@ -12,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\Review::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_product')->textInput() ?>
+    <?= $form->field($model, 'id_product')->DropDownList(models\Review::dropDownListProduct(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

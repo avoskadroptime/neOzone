@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "review".
@@ -136,4 +137,13 @@ class Review extends \yii\db\ActiveRecord
     {
         return $this->hasMany(VideoReview::class, ['id_review' => 'id']);
     }
+
+    public static function dropDownListProduct(){
+        return ArrayHelper::map(Product::find()->all(), 'id', 'name');
+    }
+
+    public static function dropDownListUser(){
+        return ArrayHelper::map(User::find()->all(), 'id', 'name');
+    }
+
 }

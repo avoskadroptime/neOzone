@@ -13,9 +13,9 @@ use app\models;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_cart')->DropDownList(models\CartHasProducts::dropDownListCart())?>
+    <?= $form->field($model, 'id_cart')->DropDownList(models\CartHasProducts::dropDownListCart(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_product')->DropDownList(models\CartHasProducts::dropDownListProduct())?>
+    <?= $form->field($model, 'id_product')->DropDownList(models\CartHasProducts::dropDownListProduct(),['prompt' => 'Выберите значение...'])?>
 
 
     <?= $form->field($model, 'count')->textInput() ?>

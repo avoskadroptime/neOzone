@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "user_has_card".
@@ -72,4 +73,10 @@ class UserHasCard extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
     }
+
+    public static function dropDownListUser()
+    {
+        return ArrayHelper::map(User::find()->all(), 'id', 'login');
+    }
+    
 }

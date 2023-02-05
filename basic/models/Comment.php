@@ -1,6 +1,7 @@
 <?php
 
 namespace app\models;
+use yii\helpers\ArrayHelper;
 
 use Yii;
 
@@ -38,7 +39,6 @@ class Comment extends \yii\db\ActiveRecord
             [['id_user', 'id_review', 'id_comment'], 'integer'],
             [['answer_to', 'text'], 'required'],
             [['answer_to', 'text'], 'string'],
-            [['id_review'], 'unique'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],
             [['id_review'], 'exist', 'skipOnError' => true, 'targetClass' => Review::class, 'targetAttribute' => ['id_review' => 'id']],
             [['id_comment'], 'exist', 'skipOnError' => true, 'targetClass' => Comment::class, 'targetAttribute' => ['id_comment' => 'id']],
@@ -98,5 +98,12 @@ class Comment extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
+    }
+    public static function dropDownListUser(){
+        return ArrayHelper::map(User::find()->all(), 'id', 'login');
+    }
+
+    public static function dropDownListComment(){
+        return ArrayHelper::map(Comment::find()->all(), 'id', 'id');
     }
 }

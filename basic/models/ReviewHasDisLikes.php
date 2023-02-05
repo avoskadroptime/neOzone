@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "review_has_dis_likes".
@@ -81,5 +82,13 @@ class ReviewHasDisLikes extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'id_user']);
+    }
+
+    public static function dropDownListReview(){
+        return ArrayHelper::map(Review::find()->all(), 'id', 'name');
+    }
+
+    public static function dropDownListLike(){
+        return ArrayHelper::map(DisLike::find()->all(), 'id', 'name');
     }
 }

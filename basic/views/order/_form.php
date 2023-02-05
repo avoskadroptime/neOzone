@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\Order $model */
@@ -12,17 +13,17 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\Order::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'date')->textInput() ?>
 
-    <?= $form->field($model, 'id_address')->textInput() ?>
+    <?= $form->field($model, 'id_address')->DropDownList(models\Order::dropDownListAddress(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_card')->textInput() ?>
+    <?= $form->field($model, 'id_card')->DropDownList(models\Order::dropDownListCard(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_cart')->textInput() ?>
+    <?= $form->field($model, 'id_cart')->DropDownList(models\Order::dropDownListCart(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_status')->textInput() ?>
+    <?= $form->field($model, 'id_status')->DropDownList(models\Order::dropDownListStatus(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'amount')->textInput() ?>
 

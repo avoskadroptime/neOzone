@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\DeliveryAddress $model */
@@ -12,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+    <?= $form->field($model, 'id_user')->DropDownList(models\DeliveryAddress::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_city')->textInput() ?>
+    <?= $form->field($model, 'id_city')->DropDownList(models\DeliveryAddress::dropDownListCity(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'street')->textInput() ?>
 
@@ -23,7 +24,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'comment')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models;
 
 /** @var yii\web\View $this */
 /** @var app\models\PhotoProduct $model */
@@ -12,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_product')->textInput() ?>
+    <?= $form->field($model, 'id_product')->DropDownList(models\PhotoProduct::dropDownListProduct(),['prompt' => 'Выберите значение...'])?>
 
     <?= $form->field($model, 'photo_name')->textInput(['maxlength' => true]) ?>
 
