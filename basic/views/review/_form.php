@@ -31,11 +31,13 @@ use app\models;
 
     <?= $form->field($model, 'count_dislike')->textInput() ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <!-- <?php /*  $form->field($model, 'created_at')->textInput()  */?> -->
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?php // $form->field($model, 'updated_at')->textInput() ?>
 
     <?= $form->field($model, 'cheked')->textInput() ?>
+
+    <?php echo 'Время создания и обновления отзыва проставляется автоматически.' ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

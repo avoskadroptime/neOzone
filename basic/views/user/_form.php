@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models;
+use kartik\date\DatePicker;
+
 
 /** @var yii\web\View $this */
 /** @var app\models\User $model */
@@ -19,7 +21,7 @@ use app\models;
 
     <?= $form->field($model, 'id_role')->dropDownList(models\User::dropDownListRole(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'id_company')->dropDownList(models\User::dropDownListCompany(),['prompt' => 'Выберите значение...'])?>
+    <?= $form->field($model, 'id_company')->dropDownList(models\User::dropDownListCompany(),['prompt' => 'Выберите значение если пользоваытель является менеджер...'])?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
@@ -29,7 +31,19 @@ use app\models;
 
     <?= $form->field($model, 'currency')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'birth_date')->textInput() ?>
+    <?= $form->field($model, 'birth_date')->widget(DatePicker::class, 
+        ['options' => [],
+        'name' => 'birth_date',
+        'language' => 'ru',
+        'value'=> 'today',
+        'pluginOptions' => [
+            'autoclose' => true,
+            'format' => 'yyyy-mm-dd',
+            'todayBtn' => true,
+            'value'=> 'today',
+            'todayHighlight' => true,
+        ]
+    ]);?>
 
     <?= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
 

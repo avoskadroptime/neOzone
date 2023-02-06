@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -10,13 +11,13 @@ use yii\helpers\ArrayHelper;
  *
  * @property int $id
  * @property int $id_user
- * @property string $date Время подтверждения заказа
+ * @property int $date Время подтверждения заказа
  * @property int $id_address
  * @property int $id_card
  * @property int $id_cart
  * @property int $id_status
  * @property int $amount Стоимость заказа
- * @property int $discount Сумма скидки на заказа
+ * @property int|null $discount Сумма скидки на заказа
  *
  * @property DeliveryAddress $address
  * @property UserHasCard $card
@@ -25,7 +26,7 @@ use yii\helpers\ArrayHelper;
  * @property OrderStatus $status
  * @property User $user
  */
-class Order extends \yii\db\ActiveRecord
+class Order extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -41,7 +42,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'date', 'id_address', 'id_card', 'id_cart', 'id_status', 'amount', 'discount'], 'required'],
+            [['id_user', 'id_address', 'id_card', 'id_cart', 'id_status', 'amount'], 'required'],
             [['id_user', 'id_address', 'id_card', 'id_cart', 'id_status', 'amount', 'discount'], 'integer'],
             [['date'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],
@@ -67,6 +68,19 @@ class Order extends \yii\db\ActiveRecord
             'id_status' => 'Id статуса заказа',
             'amount' => 'Стоимость заказа',
             'discount' => 'Сумма скидки заказа',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return[
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['date'],
+                ],
+                'value' => date("Y-m-d H:i:s"),
+            ],
         ];
     }
 

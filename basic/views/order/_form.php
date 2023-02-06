@@ -15,7 +15,7 @@ use app\models;
 
     <?= $form->field($model, 'id_user')->DropDownList(models\Order::dropDownListUser(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'date')->textInput() ?>
+    <?php //$form->field($model, 'date')->textInput() ?>
 
     <?= $form->field($model, 'id_address')->DropDownList(models\Order::dropDownListAddress(),['prompt' => 'Выберите значение...'])?>
 
@@ -28,6 +28,8 @@ use app\models;
     <?= $form->field($model, 'amount')->textInput() ?>
 
     <?= $form->field($model, 'discount')->textInput() ?>
+
+    <?php echo 'Время создания заказа проставляется автоматически.' ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

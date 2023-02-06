@@ -21,9 +21,9 @@ use app\models;
 
     <?= $form->field($model, 'id_category')->DropDownList(models\ParentProductCategory::dropDownListCategory(),['prompt' => 'Выберите значение...'])?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?php // $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?php //$form->field($model, 'updated_at')->textInput() ?>
 
     <?= $form->field($model, 'discount_perc')->textInput() ?>
 
@@ -36,6 +36,8 @@ use app\models;
     <?= $form->field($model, 'method_of_use')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'rating')->textInput() ?>
+
+    <?php echo 'Время создания и обновления товара проставляется автоматически.' ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

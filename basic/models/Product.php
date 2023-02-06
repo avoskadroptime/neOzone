@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -13,8 +14,8 @@ use yii\helpers\ArrayHelper;
  * @property int $price Цена товара в российских копейках
  * @property int $id_user id менеджера создавшего товар
  * @property int $id_category
- * @property string $created_at Время создания товара
- * @property string $updated_at Время обновления информации о товаре
+ * @property int $created_at Время создания товара
+ * @property int $updated_at Время обновления информации о товаре
  * @property int|null $discount_perc скидка в процентах
  * @property int|null $discount_price фикс. скидка в копеках
  * @property string $description Описание
@@ -31,7 +32,7 @@ use yii\helpers\ArrayHelper;
  * @property Review[] $reviews
  * @property User $user
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -47,13 +48,11 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'price', 'id_user', 'id_category', 'created_at', 'updated_at', 'description', 'characteristic'], 'required'],
+            [['name', 'price', 'id_user', 'id_category', 'description', 'characteristic'], 'required'],
             [['price', 'id_user', 'id_category', 'discount_perc', 'discount_price', 'rating'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['description', 'characteristic', 'method_of_use'], 'string'],
             [['name'], 'string', 'max' => 65],
-            [['id_category'], 'unique'],
-            [['id_user'], 'unique'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],
             [['id_category'], 'exist', 'skipOnError' => true, 'targetClass' => ProductCategory::class, 'targetAttribute' => ['id_category' => 'id']],
         ];
@@ -78,6 +77,20 @@ class Product extends \yii\db\ActiveRecord
             'characteristic' => 'Характеристика',
             'method_of_use' => 'Метод использования',
             'rating' => 'Рейтинг товара',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return[
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => date("Y-m-d H:i:s"),
+            ],
         ];
     }
 

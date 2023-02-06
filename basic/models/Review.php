@@ -3,7 +3,11 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
+
 
 /**
  * This is the model class for table "review".
@@ -18,10 +22,9 @@ use yii\helpers\ArrayHelper;
  * @property string $minuses Недостатки товара
  * @property int $count_like Кол-во лайков на отзыве от других пользователей
  * @property int $count_dislike Кол-во дизлаков на отзыве от других пользователей
- * @property string $created_at Когда создали отзыв
- * @property string $updated_at Когда обновили отзыв
- * @property int $cheked Проверен ли отзыв админом
- 1-да, 0-нет
+ * @property int $created_at Когда создали отзыв
+ * @property int $updated_at Когда обновили отзыв
+ * @property int $cheked Проверен ли отзыв админом 1-да, 0-нет
  *
  * @property Comment $comment
  * @property PhotoReview[] $photoReviews
@@ -30,7 +33,7 @@ use yii\helpers\ArrayHelper;
  * @property User $user
  * @property VideoReview[] $videoReviews
  */
-class Review extends \yii\db\ActiveRecord
+class Review extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -46,10 +49,10 @@ class Review extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'id_product', 'name', 'rating', 'description', 'pluses', 'minuses', 'count_like', 'count_dislike', 'created_at', 'updated_at', 'cheked'], 'required'],
+            [['id_user', 'id_product', 'name', 'rating', 'description', 'pluses', 'minuses', 'count_like', 'count_dislike', 'cheked'], 'required'],
             [['id_user', 'id_product', 'rating', 'count_like', 'count_dislike', 'cheked'], 'integer'],
             [['description', 'pluses', 'minuses'], 'string'],
-            [['created_at', 'updated_at'], 'safe'],
+            //[['created_at', 'updated_at'], 'safe'],
             [['name'], 'string', 'max' => 100],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],
             [['id_product'], 'exist', 'skipOnError' => true, 'targetClass' => Product::class, 'targetAttribute' => ['id_product' => 'id']],
@@ -75,6 +78,20 @@ class Review extends \yii\db\ActiveRecord
             'created_at' => 'Когда создали отзыв',
             'updated_at' => 'Когда обновили отзыв',
             'cheked' => 'Проверен ли отзыв админом: 1-да, 0-нет',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return[
+            'timestamp' => [
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => date("Y-m-d H:i:s"),
+            ],
         ];
     }
 
@@ -143,7 +160,7 @@ class Review extends \yii\db\ActiveRecord
     }
 
     public static function dropDownListUser(){
-        return ArrayHelper::map(User::find()->all(), 'id', 'name');
+        return ArrayHelper::map(User::find()->all(), 'id', 'login');
     }
 
 }
