@@ -85,6 +85,8 @@
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/bower-asset/yii2-pjax" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/symfony/polyfill-ctype" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/bower-asset/punycode" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/kartik-v/yii2-widget-datepicker" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/kartik-v/yii2-krajee-base" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

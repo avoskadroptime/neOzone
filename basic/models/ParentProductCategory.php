@@ -79,7 +79,7 @@ class ParentProductCategory extends \yii\db\ActiveRecord
     // }
 
     public static function dropDownListCategory(){
-        return ArrayHelper::map(ProductCategory::find()->all(), /* 'id_category' */ 'id', 'name');
+        return ArrayHelper::map(ProductCategory::find()->all(),  'id' , 'name');
     }
 }
 

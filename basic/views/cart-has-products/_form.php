@@ -17,7 +17,6 @@ use app\models;
 
     <?= $form->field($model, 'id_product')->DropDownList(models\CartHasProducts::dropDownListProduct(),['prompt' => 'Выберите значение...'])?>
 
-
     <?= $form->field($model, 'count')->textInput() ?>
 
     <div class="form-group">

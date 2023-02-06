@@ -145,7 +145,7 @@ class Order extends ActiveRecord
     }
 
     public static function dropDownListUser(){
-        return ArrayHelper::map(User::find()->all(), 'id', 'login');
+        return ArrayHelper::map(User::find()->all(), 'id', 'username');
     }
     
     public static function dropDownListCart()
