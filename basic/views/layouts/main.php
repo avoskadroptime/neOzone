@@ -34,7 +34,7 @@ AppAsset::register($this);
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
-    ]);/*добавить ссылки*/
+    ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [

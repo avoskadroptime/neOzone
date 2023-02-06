@@ -20,7 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'layout' => 'horizontal',
         'fieldConfig' => [
             'template' => "{label}\n{input}\n{error}",
-            'labelOptions' => ['class' => 'col-lg-1 col-form-label mr-lg-3'],
+            'labelOptions' => ['class' => 'col-lg-2 col-form-label mr-lg-3'],
+            'labelOptions' => ['class' => 'col-lg-2 col-form-label mr-lg-3'],
             'inputOptions' => ['class' => 'col-lg-3 form-control'],
             'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
         ],
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="form-group">
             <div class="offset-lg-1 col-lg-11">
-                <?= Html::submitButton('Ввойти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Войти', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
         </div>
 

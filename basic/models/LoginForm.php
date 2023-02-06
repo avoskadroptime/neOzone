@@ -34,6 +34,15 @@ class LoginForm extends Model
             ['password', 'validatePassword'],
         ];
     }
+    /*Добавила атрибуты для формы в дальнейшем*/
+    public function attributeLabels()
+    {
+        return [
+            'rememberMe' => 'Сохранить вход?',
+            'username' => 'Имя пользователя:',
+            'password' => 'Пароль:'
+        ];
+    }
 
     /**
      * Validates the password.
@@ -41,6 +50,9 @@ class LoginForm extends Model
      *
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
+     *
+     *
+     * А с помошью этой функции похоже идет проверка верно ли введен пароль
      */
     public function validatePassword($attribute, $params)
     {
@@ -48,7 +60,7 @@ class LoginForm extends Model
             $user = $this->getUser();
 
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, 'Неверно введены пароль или имя пользователя.');
             }
         }
     }
@@ -56,6 +68,10 @@ class LoginForm extends Model
     /**
      * Logs in a user using the provided username and password.
      * @return bool whether the user is logged in successfully
+     *
+     *С помошью validate выполняется вход с помошью введенных пользователем данных
+     * и если получается то возращает булловое значение true
+     * И еще похоже сохраняет в куки на 30 дней ??? если пользователь соглашается на сохранение входа
      */
     public function login()
     {
@@ -69,6 +85,8 @@ class LoginForm extends Model
      * Finds user by [[username]]
      *
      * @return User|null
+     *
+     * Исчет пользователя по Юзернейму в бд
      */
     public function getUser()
     {
