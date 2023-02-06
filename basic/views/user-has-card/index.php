@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var app\models\UserHasCardSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'User Has Cards';
+$this->title = 'Банковские карты пользователей';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-has-card-index">

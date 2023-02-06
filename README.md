@@ -4,9 +4,10 @@
 *Практика разработки онлайн-магазина neOzone, используя yii2.*
  - [x] ПР №1
  - [x] ПР №2
- - [ ] ПР №3 ~ в процессе
+ - [x] ПР №3 
  - [ ] ПР №4
  - [ ] ПР №5
+ - [ ] ПР №6
 
 **Схема бд** - https://disk.yandex.ru/i/ZUzCUuiKkHr0fQ
 ![схема бд](https://disk.yandex.ru/i/ZUzCUuiKkHr0fQ)

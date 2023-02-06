@@ -33,7 +33,7 @@ class UserHasCard extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'number', 'validity_period', 'CVV/CVC'], 'required'],
+            [['id_user', 'number', 'validity_period', 'CVV'], 'required'],
             [['id_user', 'number', 'CVV'], 'integer'],
             [['validity_period'], 'safe'],
             [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['id_user' => 'id']],

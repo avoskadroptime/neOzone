@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /** @var app\models\UserHasCard $model */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'User Has Cards', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Банковские карты пользователей', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>

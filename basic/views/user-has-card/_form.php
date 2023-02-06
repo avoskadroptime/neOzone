@@ -18,8 +18,6 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'number')->textInput() ?>
 
-    
-
     <?= $form->field($model, 'validity_period')->widget(DatePicker::class, [
         'options' => ['placeholder' => Yii::t('app', 'Starting Date')],
         'language' => 'ru',
@@ -28,7 +26,7 @@ use kartik\date\DatePicker;
             'autoclose' => true,
             'startView' => 'year',
             'minViewMode' => 'months',
-            'format' => 'mm-yyyy',
+            'format' => 'yyyy-mm-01',
         ]
     ]); 
     ?>
