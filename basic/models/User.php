@@ -184,6 +184,7 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * {@inheritdoc}
+     * атрибуты для форм
      */
     public function attributeLabels()
     {
@@ -201,7 +202,7 @@ class User extends ActiveRecord implements IdentityInterface
             'avatar_name' => 'Название фотографии для аватара + расширение файла',
         ];
     }
-
+    // Снизу идут связи с внешними ключами в других таблицах 
     /**
      * Gets query for [[Carts]].
      *
@@ -322,6 +323,9 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasMany(UserHasCard::class, ['id_user' => 'id']);
     }
 
+
+
+    // получение данных для выпадающих списков формы 
 
     public static function dropDownListRole(){
         return ArrayHelper::map(Role::find()->all(), 'id', 'name');
